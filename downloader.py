@@ -53,11 +53,13 @@ if __name__ == '__main__':
 
     '''
 
-    API_Key = 'Use your API Key'
-    API_Secret = 'Use your API Secret'
+    API_Key = 'Your API key'
+    API_Secret = 'Your API Secret'
     basic = HTTPBasicAuth(API_Key, API_Secret)
 
-    db_client_mongo = MongoClient("mongodb+srv://<usename>:<password>@codata.4ricoyc.mongodb.net/?retryWrites=true&w=majority")
+    # Mongo DB Atlas Instance Initialization
+
+    db_client_mongo = MongoClient("mongodb+srv://<username>:<password>@codata.4ricoyc.mongodb.net/?retryWrites=true&w=majority")
     db = db_client_mongo.COData  # Creating a Database
     db_collection = db.douglas  # Creating a collection
 
