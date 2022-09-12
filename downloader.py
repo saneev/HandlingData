@@ -57,11 +57,12 @@ if __name__ == '__main__':
     API_Secret = 'Your API Secret'
     basic = HTTPBasicAuth(API_Key, API_Secret)
 
+    responses = list(getData())  # Calling function to fetch CO specific data from the API Endpoint
+
     # Mongo DB Atlas Instance Initialization
 
     db_client_mongo = MongoClient("mongodb+srv://<username>:<password>@codata.4ricoyc.mongodb.net/?retryWrites=true&w=majority")
     db = db_client_mongo.COData  # Creating a Database
     db_collection = db.douglas  # Creating a collection
 
-    responses = list(getData())  # Calling function to fetch CO specific data from the API Endpoint
     dataWrite(db, db_collection, responses)  # Writes JSON data from getData() function to MongoDB
